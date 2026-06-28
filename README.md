@@ -52,3 +52,21 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+## Features
+
+### Batch Download
+- **一键打包下载**：将所有转换完成的音频文件打包成ZIP文件下载
+- **自动命名**：ZIP文件按日期自动命名（如：`转换完成的音频_2026-06-28.zip`）
+- **进度显示**：打包过程中显示"正在打包..."状态
+- **压缩优化**：使用DEFLATE压缩算法，压缩级别6，平衡文件大小和速度
+
+### How to Use Batch Download
+1. 上传音频文件并完成转换
+2. 在转换队列工具栏中点击"打包下载"按钮
+3. 等待ZIP文件生成和下载
+4. 解压ZIP文件获取所有转换完成的音频
+
+### Supported Formats
+- **输入格式**：NCM、QMC系列、KGM、KWM、MG3D、SODA、MDL等加密格式
+- **输出格式**：MP3、FLAC、WAV、OGG
