@@ -4,7 +4,8 @@ import { useQueueStore } from '../queue'
 
 // Mock converter
 vi.mock('@/services/converter', () => ({
-  convertAudio: vi.fn<() => Promise<void>>().mockResolvedValue({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  convertAudio: vi.fn<any>().mockResolvedValue({
     title: 'test',
     ext: 'mp3',
     mime: 'audio/mpeg',
