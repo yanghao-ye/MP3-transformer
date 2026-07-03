@@ -2,7 +2,7 @@
 
 > 将加密音乐还原为纯净音质
 
-[![Deploy to GitHub Pages](https://github.com/yanghao-ye/mp3-transformer/actions/workflows/deploy.yml/badge.svg)](https://github.com/yanghao-ye/mp3-transformer/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/yanghao-ye/MP3-transformer/actions/workflows/deploy.yml/badge.svg)](https://github.com/yanghao-ye/MP3-transformer/actions/workflows/deploy.yml)
 
 ## 功能特性
 
@@ -15,7 +15,7 @@
 
 ## 在线使用
 
-访问 [https://yanghao-ye.github.io/mp3-transformer/](https://yanghao-ye.github.io/mp3-transformer/)
+访问 [https://yanghao-ye.github.io/MP3-transformer/](https://yanghao-ye.github.io/MP3-transformer/)
 
 ## 使用方法
 
