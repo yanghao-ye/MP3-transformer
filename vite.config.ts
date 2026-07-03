@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   // GitHub Pages 需要设置 base 为仓库名
-  base: '/mp3-transformer/',
+  base: '/MP3-transformer/',
   plugins: [
     vue(),
     vueDevTools(),
