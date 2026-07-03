@@ -52,7 +52,7 @@ function openFeedback() {
         <a href="https://github.com/yanghao-ye/mp3-transformer" target="_blank">GitHub 仓库</a>
         <span class="star-note">（如果彦祖亦菲赏个star那就万分感谢）</span>
         <span class="divider">·</span>
-        <span class="dev-note">小白开发者，感谢使用，欢迎反馈</span>
+        <span class="dev-note">随便做的，感谢使用，欢迎反馈</span>
       </div>
       <p class="copyright">浏览器端解密转换 · 文件不上传服务器 · 隐私安全</p>
     </footer>
