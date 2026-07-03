@@ -17,8 +17,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  // GitHub Pages 部署路径
-  base: '/mp3-transformer/',
   // FFmpeg.wasm 需要 SharedArrayBuffer，必须设置 COOP/COEP 头
   server: {
     headers: {
