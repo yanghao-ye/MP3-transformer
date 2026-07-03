@@ -109,10 +109,8 @@ class NcmDecryptor {
 
     WordArray.create();
     const plainText = AES.decrypt(
-      // @ts-expect-error - CryptoJS type mismatch with Uint8Array
       {
         ciphertext: Base64.parse(
-          // @ts-expect-error - CryptoJS type mismatch with Uint8Array
           WordArray.create(cipherText.slice(22)).toString(EncUTF8),
         ),
       },
