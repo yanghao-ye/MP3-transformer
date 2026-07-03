@@ -10,7 +10,7 @@ import WordArray from 'crypto-js/lib-typedarrays';
 import Base64 from 'crypto-js/enc-base64';
 import EncUTF8 from 'crypto-js/enc-utf8';
 import EncHex from 'crypto-js/enc-hex';
-import CipherParams from 'crypto-js/lib-cipherparams';
+import CryptoJS from 'crypto-js';
 
 import type { DecryptResult } from './entity';
 import { AudioMimeType, BytesHasPrefix, GetArrayBuffer, SniffAudioExt } from './utils';
@@ -109,7 +109,7 @@ class NcmDecryptor {
     this.offset += metaDataLen;
 
     WordArray.create();
-    const cipherParams = CipherParams.create({
+    const cipherParams = CryptoJS.lib.CipherParams.create({
       ciphertext: Base64.parse(
         WordArray.create(cipherText.slice(22)).toString(EncUTF8),
       ),
