@@ -28,9 +28,9 @@ describe('Queue Store', () => {
     store.addFiles(files)
 
     expect(store.items).toHaveLength(2)
-    expect(store.items[0].name).toBe('song1.ncm')
-    expect(store.items[1].name).toBe('song2.mp3')
-    expect(store.items[0].status).toBe('pending')
+    expect(store.items[0]?.name).toBe('song1.ncm')
+    expect(store.items[1]?.name).toBe('song2.mp3')
+    expect(store.items[0]?.status).toBe('pending')
   })
 
   it('removes item from queue', () => {
@@ -38,8 +38,9 @@ describe('Queue Store', () => {
     const files = [new File(['test'], 'song.ncm')]
     store.addFiles(files)
 
-    const id = store.items[0].id
-    store.removeItem(id)
+    const item = store.items[0]
+    expect(item).toBeDefined()
+    store.removeItem(item!.id)
 
     expect(store.items).toHaveLength(0)
   })
@@ -48,14 +49,15 @@ describe('Queue Store', () => {
     const store = useQueueStore()
     store.addFiles([new File(['test'], 'song.ncm')])
 
-    const id = store.items[0].id
-    store.items[0].status = 'error'
-    store.items[0].error = 'Test error'
+    const item = store.items[0]
+    expect(item).toBeDefined()
+    item!.status = 'error'
+    item!.error = 'Test error'
 
-    store.retryItem(id)
+    store.retryItem(item!.id)
 
     // retryItem 会先设置为 pending，然后立即开始处理
-    expect(store.items[0].error).toBeUndefined()
+    expect(item!.error).toBeUndefined()
   })
 
   it('clears completed items', () => {
@@ -65,13 +67,13 @@ describe('Queue Store', () => {
       new File(['test2'], 'song2.mp3')
     ])
 
-    store.items[0].status = 'done'
-    store.items[1].status = 'pending'
+    store.items[0]!.status = 'done'
+    store.items[1]!.status = 'pending'
 
     store.clearCompleted()
 
     expect(store.items).toHaveLength(1)
-    expect(store.items[0].status).toBe('pending')
+    expect(store.items[0]?.status).toBe('pending')
   })
 
   it('clears all items', () => {
@@ -93,10 +95,10 @@ describe('Queue Store', () => {
       new File(['test2'], 'song2.mp3')
     ])
 
-    store.items[0].status = 'done'
+    store.items[0]!.status = 'done'
 
     expect(store.pendingItems).toHaveLength(1)
-    expect(store.pendingItems[0].name).toBe('song2.mp3')
+    expect(store.pendingItems[0]?.name).toBe('song2.mp3')
   })
 
   it('computes errorItems correctly', () => {
@@ -106,7 +108,7 @@ describe('Queue Store', () => {
       new File(['test2'], 'song2.mp3')
     ])
 
-    store.items[0].status = 'error'
+    store.items[0]!.status = 'error'
 
     expect(store.errorItems).toHaveLength(1)
   })
