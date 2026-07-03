@@ -1,72 +1,70 @@
-# mp3-transformer
+# MP3 Transformer
 
-This template should help get you started developing with Vue 3 in Vite.
+> 将加密音乐还原为纯净音质
 
-## Recommended IDE Setup
+[![Deploy to GitHub Pages](https://github.com/yanghao-ye/mp3-transformer/actions/workflows/deploy.yml/badge.svg)](https://github.com/yanghao-ye/mp3-transformer/actions/workflows/deploy.yml)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 功能特性
 
-## Recommended Browser Setup
+- **多格式支持**：网易云（NCM/UC）、QQ音乐（QMC/MFLAC/MGG）、酷狗（KGM/VPR）、酷我（KWM）、咪咕（MG3D）
+- **批量转换**：支持多文件同时上传，队列式处理
+- **一键打包**：将所有转换完成的音频打包成 ZIP 下载
+- **本地处理**：所有操作在浏览器端完成，文件不上传服务器
+- **高质量输出**：支持输出为 MP3、FLAC、WAV、OGG 格式
+- **实时进度**：显示解密和转换进度
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## 在线使用
 
-## Type Support for `.vue` Imports in TS
+访问 [https://yanghao-ye.github.io/mp3-transformer/](https://yanghao-ye.github.io/mp3-transformer/)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## 使用方法
 
-## Customize configuration
+1. 点击上传区域或拖拽文件到页面
+2. 确认文件列表，选择输出格式
+3. 点击「开始转换」
+4. 转换完成后可预览、单个下载或打包下载
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 支持的格式
 
-## Project Setup
+| 平台 | 加密格式 |
+|------|----------|
+| 网易云音乐 | NCM、UC |
+| QQ音乐 | QMC0、QMC2、QMC3、MFLAC、MGG |
+| 酷狗音乐 | KGM、VPR |
+| 酷我音乐 | KWM |
+| 咪咕音乐 | MG3D |
 
-```sh
+## 技术栈
+
+- **前端框架**：Vue 3 + TypeScript
+- **构建工具**：Vite
+- **样式**：Tailwind CSS
+- **状态管理**：Pinia
+- **音频处理**：FFmpeg.wasm（WebAssembly）
+- **解密算法**：基于 [unlock-music](https://github.com/unlock-music/cli) 的纯 JS 实现
+
+## 本地开发
+
+```bash
+# 安装依赖
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# 启动开发服务器
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+# 构建生产版本
 npm run build
+
+# 预览构建结果
+npm run preview
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## 注意事项
 
-```sh
-npm run test:unit
-```
+- 所有文件仅在浏览器本地处理，不会上传到任何服务器
+- 首次使用需要加载 FFmpeg.wasm（约 30MB），请耐心等待
+- 建议使用现代浏览器（Chrome、Firefox、Edge）
 
-### Lint with [ESLint](https://eslint.org/)
+## 许可证
 
-```sh
-npm run lint
-```
-
-## Features
-
-### Batch Download
-- **一键打包下载**：将所有转换完成的音频文件打包成ZIP文件下载
-- **自动命名**：ZIP文件按日期自动命名（如：`转换完成的音频_2026-06-28.zip`）
-- **进度显示**：打包过程中显示"正在打包..."状态
-- **压缩优化**：使用DEFLATE压缩算法，压缩级别6，平衡文件大小和速度
-
-### How to Use Batch Download
-1. 上传音频文件并完成转换
-2. 在转换队列工具栏中点击"打包下载"按钮
-3. 等待ZIP文件生成和下载
-4. 解压ZIP文件获取所有转换完成的音频
-
-### Supported Formats
-- **输入格式**：NCM、QMC系列、KGM、KWM、MG3D、SODA、MDL等加密格式
-- **输出格式**：MP3、FLAC、WAV、OGG
+MIT License

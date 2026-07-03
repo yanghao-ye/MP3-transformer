@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import FileUploader from './components/FileUploader.vue';
 import ConvertQueue from './components/ConvertQueue.vue';
+import ErrorHandler from './components/ErrorHandler.vue';
 
 const showHelp = ref(false);
 
@@ -114,6 +115,8 @@ function openFeedback() {
         </div>
       </div>
     </div>
+    <!-- Error Handler -->
+    <ErrorHandler />
   </div>
 </template>
 
